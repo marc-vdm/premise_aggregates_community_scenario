@@ -1,0 +1,197 @@
+{
+    "profile": "data-package",
+    "name": "concrete-recycling",
+    "title": "Concrete recycling",
+    "description": "Concrete recycling scenarios from IMAGE SSP2",
+    "version": "0.0.1",
+    "contributors":[{
+    "title": "Marc van der Meide",
+    "email": "m.t.van.der.meide@cml.leidenuniv.nl"
+    }],
+    "dependencies": {
+        "premise": "=2.1"
+    },
+    "ecoinvent": {
+        "version": "3.10",
+        "system model": "cut-off"
+    },
+    "scenarios": {
+        "SSP2-Base-image": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            }
+        ]
+    },
+    "licenses": [{
+    "id": "CC0-1.0",
+    "title": "CC0 1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }],
+    "resources": [
+        {
+            "path": "scenario_data/scenario_data.csv",
+            "profile": "tabular-data-resource",
+            "name": "scenario_data",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8-sig",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "scenario",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "region",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "variables",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "unit",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2020",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2025",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2030",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2035",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2040",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2045",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2050",
+                        "type": "number",
+                        "format": "default"
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            }
+        },
+        {
+            "path": "inventories/aggregate_LCI.csv",
+            "profile": "data-resource",
+            "name": "inventories",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "database",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "location",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "categories",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "unit",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "type",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "reference product",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "comment",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "uncertainty",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "loc",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "scale",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "pedigree",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "scale without pedigree",
+                        "type": "number",
+                        "format": "default"
+                    }
+                ],
+
+                "missingValues": [
+                    ""
+                ]
+            }
+        },
+        {
+            "path": "configuration_file/config.yaml",
+            "profile": "data-resource",
+            "name": "config",
+            "format": "yaml",
+            "mediatype": "text/yaml",
+            "encoding": "utf-8"
+        }
+    ]
+}

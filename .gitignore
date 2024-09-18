@@ -1,0 +1,5 @@
+/key.txt
+/export/*
+/scenario_data/.~lock.scenario_data.csv#
+/inventories/.~lock.aggregate_LCI.csv#
+/model/.~lock.filtered_to_list.csv#

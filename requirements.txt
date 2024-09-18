@@ -1,0 +1,7 @@
+numpy
+pandas
+pyyaml
+schema
+premise==2.1
+datapackage
+brightway2
