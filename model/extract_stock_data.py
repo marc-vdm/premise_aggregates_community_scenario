@@ -20,8 +20,9 @@ import pandas as pd
 import numpy as np
 from copy import deepcopy
 
+from utils import df_status, UNIT
+
 # global variables:
-UNIT = "kt"  # unit of flows
 REGIONS = {
     # IMAGE regions: https://web.archive.org/web/20181231082909/https://models.pbl.nl/image/index.php/Region_classification_map
     1:  "Canada",
@@ -51,15 +52,6 @@ REGIONS = {
     25: "Rest of South Asia",
     26: "Rest of Southern Africa",
     }
-
-
-def df_status(df) -> dict:
-    """Return some info from the df in a dict """
-    status = {
-        "shape": df.shape
-        }
-    return status
-
 
 def clean_and_reorganize(df: pd.DataFrame, 
                          prints: str ="end") -> pd.DataFrame:
@@ -217,14 +209,11 @@ def calculate_availability(df: pd.DataFrame,
         
 
 # read data
-if "df_orig" not in locals().keys():
-    # Original file is from Deetman et al. (2020): https://github.com/SPDeetman/BUMA
-    # in the folder 'output'
-    df_orig = pd.read_excel("Supplementary Data (Original model).xlsx",
-                       sheet_name="material_output")
-    print(f"Data loaded: {df_status(df_orig)}")
-else:
-    print("Data was already loaded")
+# Original file is from Deetman et al. (2020): https://github.com/SPDeetman/BUMA
+# in the folder 'output'
+df_orig = pd.read_excel("Supplementary Data (Original model).xlsx",
+                   sheet_name="material_output")
+print(f"Data loaded: {df_status(df_orig)}")
 
 # clean data
 df_clean = clean_and_reorganize(df_orig)
