@@ -7,8 +7,8 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,reference product,,,,,,,
-ADR (0-1 mm),193,aggregate_LCI,GLO,kilogram,production,intermediate (0-1 mm),,,,,,,
-advanced dry recovery (ADR),0.193,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-16 mm),,,,,,,
+ADR (0-1 mm),1,aggregate_LCI,GLO,kilogram,production,intermediate (0-1 mm),,,,,,,
+advanced dry recovery (ADR),0.001,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-16 mm),,,,,,,
 ,,,,,,,,,,,,,
 Activity,ADR gravel,,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
@@ -17,8 +17,8 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,reference product,,,,,,,
-ADR gravel,614,aggregate_LCI,GLO,kilogram,production,"gravel, crushed, from ADR",,,,,,,
-advanced dry recovery (ADR),0.614,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-16 mm),,,,,,,
+ADR gravel,1,aggregate_LCI,GLO,kilogram,production,"gravel, crushed, from ADR",,,,,,,
+advanced dry recovery (ADR),0.001,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-16 mm),,,,,,,
 ,,,,,,,,,,,,,
 Activity,ADR (1-4 mm),,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
@@ -27,8 +27,8 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,reference product,,,,,,,
-ADR (1-4 mm),193,aggregate_LCI,GLO,kilogram,production,intermediate (1-4 mm),,,,,,,
-advanced dry recovery (ADR),0.193,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-16 mm),,,,,,,
+ADR (1-4 mm),1,aggregate_LCI,GLO,kilogram,production,intermediate (1-4 mm),,,,,,,
+advanced dry recovery (ADR),0.001,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-16 mm),,,,,,,
 ,,,,,,,,,,,,,
 Activity,advanced dry recovery (ADR),,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
@@ -47,8 +47,8 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,reference product,,,,,,,
-HAS (0-0.125 mm),250,aggregate_LCI,GLO,kilogram,production,intermediate (0-0.125 mm),,,,,,,
-heated air classification (HAS),0.25,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-4 mm),,,,,,,
+HAS (0-0.125 mm),1,aggregate_LCI,GLO,kilogram,production,intermediate (0-0.125 mm),,,,,,,
+heated air classification (HAS),0.001,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-4 mm),,,,,,,
 ,,,,,,,,,,,,,
 Activity,HAS sand,,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
@@ -57,8 +57,8 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,reference product,,,,,,,
-HAS sand,750,aggregate_LCI,GLO,kilogram,production,manufactured sand,,,,,,,
-heated air classification (HAS),0.75,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-4 mm),,,,,,,
+HAS sand,1,aggregate_LCI,GLO,kilogram,production,manufactured sand,,,,,,,
+heated air classification (HAS),0.001,aggregate_LCI,GLO,unit (tonne),technosphere,intermediate (0-4 mm),,,,,,,
 ,,,,,,,,,,,,,
 Activity,heated air classification (HAS),,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
@@ -79,10 +79,10 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,reference product,,,,,,,
-ball milling,1000,aggregate_LCI,GLO,kilogram,production,manufactured cement filler,,,,,,,
-ADR (0-1 mm),0.8129,aggregate_LCI,GLO,kilogram,technosphere,intermediate (0-1 mm),,,,,,,
-HAS (0-0.125 mm),0.1871,aggregate_LCI,GLO,kilogram,technosphere,intermediate (0-0.125 mm),,,,,,,
-"market group for electricity, medium voltage",30.05,SSP2,Europe without Switzerland,kilowatt hour,technosphere,"electricity, medium voltage",,,,,,,
+ball milling,1,aggregate_LCI,GLO,kilogram,production,manufactured cement filler,,,,,,,
+ADR (0-1 mm),0.0008129,aggregate_LCI,GLO,kilogram,technosphere,intermediate (0-1 mm),,,,,,,
+HAS (0-0.125 mm),0.0001871,aggregate_LCI,GLO,kilogram,technosphere,intermediate (0-0.125 mm),,,,,,,
+"market group for electricity, medium voltage",0.03005,SSP2,Europe without Switzerland,kilowatt hour,technosphere,"electricity, medium voltage",,,,,,,
 ,,,,,,,,,,,,,
 Activity,"HVO diesel, burned in building machine",,,,,,,,,,,,
 activity type,ordinary transforming activity,,,,,,,,,,,,
@@ -108,40 +108,39 @@ This module is based on the data included in the report Oekoinventare von Energi
 Geography:  Certain elementary flows or intermediate product flows are extrapolated from RER and CH conditions.
 Technology:  Average current technology for one typical machine representing the category.",,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
-production amount,1,,,,,,,,,,,,
 reference product,"HVO diesel, burned in building machine",,,,,,,,,,,,
 type,process,,,,,,,,,,,,
 unit,megajoule,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,categories,type,uncertainty type,loc,scale,comment,pedigree,reference product,scale without pedigree
-Ammonia,0.000000467,biosphere3,,kilogram,air,biosphere,2,-14.5769365792775,0.313209195267317,,1::5::5::3::1::1,,0.223606797749979
-Benzo(a)pyrene,1.7525E-10,biosphere3,,kilogram,air,biosphere,2,-21.078513228894,0.598414572015087,"75% lower HC, orig: 7.01e-10",1::5::5::3::1::1,,0.556776436283002
-Cadmium II,2.34E-10,biosphere3,,kilogram,air,biosphere,2,-22.1757000005709,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-"Carbon dioxide, from soil or biomass stock",0.073,biosphere3,,kilogram,air,biosphere,,,,biogenic replace,,,
-"Carbon monoxide, from soil or biomass stock",0.00005054,biosphere3,,kilogram,air,biosphere,,,,"biogenic replace, 81% lower CO, orig: 0.000266",,,
-Chromium III,0.00000000117,biosphere3,,kilogram,air,biosphere,2,-20.5662620881368,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-Copper ion,0.0000000397,biosphere3,,kilogram,air,biosphere,2,-17.0419146492533,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-Dinitrogen monoxide,0.0000028,biosphere3,,kilogram,air,biosphere,2,-12.7858911407831,0.313209195267317,,1::5::5::3::1::1,,0.223606797749979
-"Dioxins, measured as 2,3,7,8-tetrachlorodibenzo-p-dioxin",1.4E-15,biosphere3,,kilogram,air,biosphere,2,-34.2023041582895,0.313209195267317,,1::5::5::3::1::1,,0.223606797749979
-"Methane, from soil or biomass stock",0.0000009375,biosphere3,,kilogram,air,biosphere,,,,"biogenic replace, 75% lower HC, orig: 3.75e-06",,,
-"NMVOC, non-methane volatile organic compounds",0.00003025,biosphere3,,kilogram,air,biosphere,2,-9.01972001236753,0.313209195267317,"75% lower HC, orig: 0.000121",1::5::5::3::1::1,,0.223606797749979
-Nickel II,0.00000000164,biosphere3,,kilogram,air,biosphere,2,-20.2285695951103,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-Nitrogen oxides,0.000721,biosphere3,,kilogram,air,biosphere,2,-6.87819647674059,0.313209195267317,"30% lower NOx, orig: 0.00103",1::5::5::3::1::1,,0.223606797749979
-"PAH, polycyclic aromatic hydrocarbons",0.000000019625,biosphere3,,kilogram,air,biosphere,2,-16.3601672121581,0.598414572015087,"75% lower HC, orig: 7.85e-08",1::5::5::3::1::1,,0.556776436283002
-"Particulate Matter, < 2.5 um",0.0000421521,biosphere3,,kilogram,air,biosphere,2,-9.26902936832486,0.598414572015087,"55.3% lower PM, orig: 9.43e-05",1::5::5::3::1::1,,0.556776436283002
-"Particulate Matter, > 10 um",0.00000280716,biosphere3,,kilogram,air,biosphere,2,-11.9781405774842,0.313209195267317,"55.3% lower PM, orig: 6.28e-06",1::5::5::3::1::1,,0.223606797749979
-"Particulate Matter, > 2.5 um and < 10um",0.00000187293,biosphere3,,kilogram,air,biosphere,2,-12.3828098240302,0.422018956920184,"55.3% lower PM, orig: 4.19e-06",1::5::5::3::1::1,,0.360555127546399
-Selenium IV,2.34E-10,biosphere3,,kilogram,air,biosphere,2,-22.1757000005709,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-Sulfur dioxide,0.0000236,biosphere3,,kilogram,air,biosphere,2,-10.6542638459327,0.241039415863879,,1::5::5::3::1::1,,0.1
-Zinc II,0.0000000234,biosphere3,,kilogram,air,biosphere,2,-17.5705298145828,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-"HVO diesel, burned in building machine",1.0436,aggregate_LCI,GLO,megajoule,,production,0,1,,EcoSpold01Location=GLO,,"HVO diesel, burned in building machine",
-HVO diesel production (Roque et al 2023),0.0234,aggregate_LCI,GLO,kilogram,,technosphere,,,,replace diesel input,,HVO diesel,
-market for building machine,0.000000134,SSP2,GLO,unit,,technosphere,2,-15.8254260369955,0.598414572015087,EcoSpold01Location=RER,1::5::5::3::1::1,building machine,0.556776436283002
-market for lubricating oil,8.94359999999939E-05,SSP2,RER,kilogram,,technosphere,2,-9.32198727227679,0.241039415863879,EcoSpold01Location=RER,1::5::5::3::1::1,lubricating oil,0.1
-market for lubricating oil,0.000424564000000006,SSP2,RoW,kilogram,,technosphere,2,-7.76444779797025,0.241039415863879,EcoSpold01Location=RER,1::5::5::3::1::1,lubricating oil,0.1
-market for waste mineral oil,-0.000369418717110879,SSP2,RoW,kilogram,,technosphere,2,-7.90357982253074,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
-market for waste mineral oil,-0.000141088493022534,SSP2,Europe without Switzerland,kilogram,,technosphere,2,-8.86612325436206,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
-market for waste mineral oil,-3.49278986658777E-06,SSP2,CH,kilogram,,technosphere,2,-12.5648097523838,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
+Ammonia,4.47489459563051E-07,biosphere3,,kilogram,air,biosphere,2,-14.5769365792775,0.313209195267317,,1::5::5::3::1::1,,0.223606797749979
+Benzo(a)pyrene,1.67928325028747E-10,biosphere3,,kilogram,air,biosphere,2,-21.078513228894,0.598414572015087,"75% lower HC, orig: 7.01e-10",1::5::5::3::1::1,,0.556776436283002
+Cadmium II,2.24223840551936E-10,biosphere3,,kilogram,air,biosphere,2,-22.1757000005709,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
+"Carbon dioxide, from soil or biomass stock",0.0699501724798773,biosphere3,,kilogram,air,biosphere,,,,biogenic replace,,,
+"Carbon monoxide, from soil or biomass stock",4.84285166730548E-05,biosphere3,,kilogram,air,biosphere,,,,"biogenic replace, 81% lower CO, orig: 0.000266",,,
+Chromium III,1.12111920275968E-09,biosphere3,,kilogram,air,biosphere,2,-20.5662620881368,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
+Copper ion,3.80413951705634E-08,biosphere3,,kilogram,air,biosphere,2,-17.0419146492533,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
+Dinitrogen monoxide,2.68302031429667E-06,biosphere3,,kilogram,air,biosphere,2,-12.7858911407831,0.313209195267317,,1::5::5::3::1::1,,0.223606797749979
+"Dioxins, measured as 2,3,7,8-tetrachlorodibenzo-p-dioxin",1.34151015714833E-15,biosphere3,,kilogram,air,biosphere,2,-34.2023041582895,0.313209195267317,,1::5::5::3::1::1,,0.223606797749979
+"Methane, from soil or biomass stock",8.98332694518973E-07,biosphere3,,kilogram,air,biosphere,,,,"biogenic replace, 75% lower HC, orig: 3.75e-06",,,
+"NMVOC, non-methane volatile organic compounds",2.89862016098122E-05,biosphere3,,kilogram,air,biosphere,2,-9.01972001236753,0.313209195267317,"75% lower HC, orig: 0.000121",1::5::5::3::1::1,,0.223606797749979
+Nickel II,1.57148332694519E-09,biosphere3,,kilogram,air,biosphere,2,-20.2285695951103,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
+Nitrogen oxides,0.000690877730931391,biosphere3,,kilogram,air,biosphere,2,-6.87819647674059,0.313209195267317,"30% lower NOx, orig: 0.00103",1::5::5::3::1::1,,0.223606797749979
+"PAH, polycyclic aromatic hydrocarbons",1.88050977385972E-08,biosphere3,,kilogram,air,biosphere,2,-16.3601672121581,0.598414572015087,"75% lower HC, orig: 7.85e-08",1::5::5::3::1::1,,0.556776436283002
+"Particulate Matter, < 2.5 um",4.03910502108087E-05,biosphere3,,kilogram,air,biosphere,2,-9.26902936832486,0.598414572015087,"55.3% lower PM, orig: 9.43e-05",1::5::5::3::1::1,,0.556776436283002
+"Particulate Matter, > 10 um",2.68988118052894E-06,biosphere3,,kilogram,air,biosphere,2,-11.9781405774842,0.313209195267317,"55.3% lower PM, orig: 6.28e-06",1::5::5::3::1::1,,0.223606797749979
+"Particulate Matter, > 2.5 um and < 10um",1.79468187044845E-06,biosphere3,,kilogram,air,biosphere,2,-12.3828098240302,0.422018956920184,"55.3% lower PM, orig: 4.19e-06",1::5::5::3::1::1,,0.360555127546399
+Selenium IV,2.24223840551936E-10,biosphere3,,kilogram,air,biosphere,2,-22.1757000005709,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
+Sulfur dioxide,2.26140283633576E-05,biosphere3,,kilogram,air,biosphere,2,-10.6542638459327,0.241039415863879,,1::5::5::3::1::1,,0.1
+Zinc II,2.24223840551936E-08,biosphere3,,kilogram,air,biosphere,2,-17.5705298145828,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
+"HVO diesel, burned in building machine",1,aggregate_LCI,GLO,megajoule,,production,0,1,,EcoSpold01Location=GLO,,"HVO diesel, burned in building machine",
+HVO diesel production (Roque et al 2023),0.0224223840551936,aggregate_LCI,GLO,kilogram,,technosphere,,,,replace diesel input,,HVO diesel,
+market for building machine,1.28401686469912E-07,SSP2,GLO,unit,,technosphere,2,-15.8254260369955,0.598414572015087,EcoSpold01Location=RER,1::5::5::3::1::1,building machine,0.556776436283002
+market for lubricating oil,8.56995017247929E-05,SSP2,RER,kilogram,,technosphere,2,-9.32198727227679,0.241039415863879,EcoSpold01Location=RER,1::5::5::3::1::1,lubricating oil,0.1
+market for lubricating oil,0.000406826370256809,SSP2,RoW,kilogram,,technosphere,2,-7.76444779797025,0.241039415863879,EcoSpold01Location=RER,1::5::5::3::1::1,lubricating oil,0.1
+market for waste mineral oil,-0.000353984972317822,SSP2,RoW,kilogram,,technosphere,2,-7.90357982253074,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
+market for waste mineral oil,-0.000135194033176058,SSP2,Europe without Switzerland,kilogram,,technosphere,2,-8.86612325436206,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
+market for waste mineral oil,-3.34686648772305E-06,SSP2,CH,kilogram,,technosphere,2,-12.5648097523838,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
 ,,,,,,,,,,,,,
 Activity,HVO diesel production (Roque et al 2023),,,,,,,,,,,,
 comment,"LCI based on Table 5 in https://www.sciencedirect.com/science/article/pii/S0959652623001476
@@ -154,16 +153,16 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,categories,type,comment,reference product,,,,,
-"Carbon dioxide, non-fossil",48,biosphere3,,kilogram,air,biosphere,,,,,,,
-HVO diesel production (Roque et al 2023),1000,aggregate_LCI,GLO,kilogram,,production,,HVO diesel,,,,,
-Catalyst production,2.98,aggregate_LCI,GLO,kilogram,,technosphere,,Catalyst,,,,,
-crude oil pretreatment,1191,aggregate_LCI,GLO,kilogram,,technosphere,,pretreated oil,,,,,
-"market for heat, from steam, in chemical industry",29,SSP2,RER,megajoule,,technosphere,,"heat, from steam, in chemical industry",,,,,
-"market for hydrogen, gaseous, medium pressure, merchant",42,SSP2,RER,kilogram,,technosphere,,"hydrogen, gaseous, medium pressure, merchant",,,,,
-market for tap water,4,SSP2,Europe without Switzerland,kilogram,,technosphere,Cooling water,tap water,,,,,
-market for tap water,25,SSP2,Europe without Switzerland,kilogram,,technosphere,Process water,tap water,,,,,
-market for wastewater from vegetable oil refinery,0.113,SSP2,GLO,cubic meter,,technosphere,assumed 1m3=1000kg,wastewater from vegetable oil refinery,,,,,
-"market group for electricity, high voltage",29.7222,SSP2,Europe without Switzerland,kilowatt hour,,technosphere,107MJ (1MJ==0.2778kWh),"electricity, high voltage",,,,,
+"Carbon dioxide, non-fossil",0.048,biosphere3,,kilogram,air,biosphere,,,,,,,
+HVO diesel production (Roque et al 2023),1,aggregate_LCI,GLO,kilogram,,production,,HVO diesel,,,,,
+Catalyst production,0.00298,aggregate_LCI,GLO,kilogram,,technosphere,,Catalyst,,,,,
+crude oil pretreatment,1.191,aggregate_LCI,GLO,kilogram,,technosphere,,pretreated oil,,,,,
+"market for heat, from steam, in chemical industry",0.029,SSP2,RER,megajoule,,technosphere,,"heat, from steam, in chemical industry",,,,,
+"market for hydrogen, gaseous, medium pressure, merchant",0.042,SSP2,RER,kilogram,,technosphere,,"hydrogen, gaseous, medium pressure, merchant",,,,,
+market for tap water,0.004,SSP2,Europe without Switzerland,kilogram,,technosphere,Cooling water,tap water,,,,,
+market for tap water,0.025,SSP2,Europe without Switzerland,kilogram,,technosphere,Process water,tap water,,,,,
+market for wastewater from vegetable oil refinery,0.000113,SSP2,GLO,cubic meter,,technosphere,assumed 1m3=1000kg,wastewater from vegetable oil refinery,,,,,
+"market group for electricity, high voltage",0.0297222,SSP2,Europe without Switzerland,kilowatt hour,,technosphere,107MJ (1MJ==0.2778kWh),"electricity, high voltage",,,,,
 ,,,,,,,,,,,,,
 Activity,crude oil pretreatment,,,,,,,,,,,,
 comment,"Based on Table 5 in https://www.sciencedirect.com/science/article/pii/S0959652623001476
@@ -177,16 +176,16 @@ type,process,,,,,,,,,,,,
 unit,kilogram,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,comment,reference product,,,,,,
-crude oil pretreatment,1191,aggregate_LCI,GLO,kilogram,production,,pretreated oil,,,,,,
-"market for chemical, inorganic",1.9,SSP2,GLO,kilogram,technosphere,half of 'process chemicals',"chemical, inorganic",,,,,,
-"market for chemical, organic",1.9,SSP2,GLO,kilogram,technosphere,half of 'process chemicals',"chemical, organic",,,,,,
-"market for heat, from steam, in chemical industry",657,SSP2,RER,megajoule,technosphere,,"heat, from steam, in chemical industry",,,,,,
-"market for palm oil, crude",1214,SSP2,GLO,kilogram,technosphere,assume all crude oil is from palm-oil,"palm oil, crude",,,,,,
-market for tap water,70,SSP2,Europe without Switzerland,kilogram,technosphere,Cooling water,tap water,,,,,,
-market for tap water,28,SSP2,Europe without Switzerland,kilogram,technosphere,Process water,tap water,,,,,,
-market for wastewater from vegetable oil refinery,-0.111,SSP2,GLO,cubic meter,technosphere,assumed 1m3=1000kg,wastewater from vegetable oil refinery,,,,,,
-"market group for electricity, high voltage",13.8889,SSP2,Europe without Switzerland,kilowatt hour,technosphere,50MJ (1MJ==0.2778kWh),"electricity, high voltage",,,,,,
-"treatment of municipal solid waste, municipal incineration",-13,SSP2,NL,kilogram,technosphere,,municipal solid waste,,,,,,
+crude oil pretreatment,1,aggregate_LCI,GLO,kilogram,production,,pretreated oil,,,,,,
+"market for chemical, inorganic",0.00159529806884971,SSP2,GLO,kilogram,technosphere,half of 'process chemicals',"chemical, inorganic",,,,,,
+"market for chemical, organic",0.00159529806884971,SSP2,GLO,kilogram,technosphere,half of 'process chemicals',"chemical, organic",,,,,,
+"market for heat, from steam, in chemical industry",0.551637279596977,SSP2,RER,megajoule,technosphere,,"heat, from steam, in chemical industry",,,,,,
+"market for palm oil, crude",1.01931150293871,SSP2,GLO,kilogram,technosphere,assume all crude oil is from palm-oil,"palm oil, crude",,,,,,
+market for tap water,0.0587741393786734,SSP2,Europe without Switzerland,kilogram,technosphere,Cooling water,tap water,,,,,,
+market for tap water,0.0235096557514694,SSP2,Europe without Switzerland,kilogram,technosphere,Process water,tap water,,,,,,
+market for wastewater from vegetable oil refinery,-9.31989924433249E-05,SSP2,GLO,cubic meter,technosphere,assumed 1m3=1000kg,wastewater from vegetable oil refinery,,,,,,
+"market group for electricity, high voltage",0.0116615449202351,SSP2,Europe without Switzerland,kilowatt hour,technosphere,50MJ (1MJ==0.2778kWh),"electricity, high voltage",,,,,,
+"treatment of municipal solid waste, municipal incineration",-0.0109151973131822,SSP2,NL,kilogram,technosphere,,municipal solid waste,,,,,,
 ,,,,,,,,,,,,,
 Activity,Catalyst production,,,,,,,,,,,,
 comment,"Based on: https://pubs.acs.org/doi/10.1021/acs.jpcc.2c05927 chapter 2.2 weight fractions
