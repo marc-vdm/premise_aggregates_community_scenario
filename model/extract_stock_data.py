@@ -293,7 +293,7 @@ outlfow_conversion_rate["any"] = 0
 inflow_conversion_rate = np.linspace(0.5, 0.750, 32)
 inflow_conversion_rate = {2020 + i: rate for i, rate in enumerate(inflow_conversion_rate[1:])}
 inflow_conversion_rate["any"] = 0.5
-inflow_conversion_rate = 0.3  # set if no limit
+# inflow_conversion_rate = 1  # set if no limit
 
 # calculate new stock data
 t = time()

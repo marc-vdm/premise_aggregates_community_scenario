@@ -3,13 +3,13 @@ from datapackage import Package
 import bw2data as bd
 
 #project
-PROJECT = "premise_310_testing"
+PROJECT = "premise_aggregates"
 bd.projects.set_current(PROJECT)
 
 # database settings
-SOURCE_DB = "ecoinvent-3.10-cutoff"
+SOURCE_DB = "ecoinvent-3.10.1-cutoff"
 SOURCE_V = "3.10"
-NEW_DB_NAME = "test_aggregates"
+NEW_DB_NAME = "premise_superstructure"
 
 # key
 with open("./key.txt", "r") as f:
@@ -60,7 +60,7 @@ SECTORS = [
     "trucks",
     "buses",
     "trains",
-    "external",
+    # "external",
 ]
 
 # create new database
@@ -80,5 +80,5 @@ ndb.update(SECTORS)
 # write to BW a superstructure
 ndb.write_superstructure_db_to_brightway(NEW_DB_NAME)
 
-# # write to BW db
-# ndb.write_db_to_brightway(NEW_DB_NAME)
+# write to BW db
+ndb.write_db_to_brightway(NEW_DB_NAME)

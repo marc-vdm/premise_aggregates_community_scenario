@@ -4,7 +4,7 @@ import pandas as pd
 from utils import df_status, UNIT
 
 REGIONS = {
-    # IMAGE regions: https://web.archive.org/web/20181231082909/https://models.pbl.nl/image/index.php/Region_classification_map
+    # IMAGE regions: https://web.archive.org/web/20231128100726/https://models.pbl.nl/image/index.php/Region_classification_map
     # PREMISE region mapping: https://github.com/polca/premise/blob/master/premise/iam_variables_mapping/topologies/image-topology.json
     "Canada": "CAN",
     "USA": "USA",
