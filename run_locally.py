@@ -9,7 +9,7 @@ bd.projects.set_current(PROJECT)
 # database settings
 SOURCE_DB = "ecoinvent-3.10.1-cutoff"
 SOURCE_V = "3.10"
-NEW_DB_NAME = "premise_superstructure"
+NEW_DB_NAME = "premise_aggregates"
 
 # key
 with open("./key.txt", "r") as f:
@@ -60,7 +60,7 @@ SECTORS = [
     "trucks",
     "buses",
     "trains",
-    # "external",
+    "external",
 ]
 
 # create new database
@@ -81,4 +81,5 @@ ndb.update(SECTORS)
 ndb.write_superstructure_db_to_brightway(NEW_DB_NAME)
 
 # write to BW db
-ndb.write_db_to_brightway(NEW_DB_NAME)
+# names = [f"{NEW_DB_NAME} - {scenario['year']}" for scenario in SCENARIOS]
+# ndb.write_db_to_brightway(names)

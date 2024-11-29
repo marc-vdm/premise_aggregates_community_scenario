@@ -2,6 +2,57 @@
 
 ---
 
+# existing datasets to regionalize
+regionalize:
+  datasets:
+    # gravel
+    - name: ADR gravel
+      reference product: gravel, crushed, from ADR
+      exists in original database: False
+    - name: gravel production, crushed
+      reference product: gravel, crushed
+      exists in original database: True
+    - name: gravel and sand quarry operation
+      reference product: gravel, round
+      exists in original database: True
+    # sand
+    - name: HAS sand
+      reference product: sand, from HAS
+      exists in original database: False
+    - name: gravel and sand quarry operation
+      reference product: sand
+      exists in original database: True
+    - name: sand quarry operation, extraction from river bed
+      reference product: sand
+      exists in original database: True
+    # ADR
+    - name: ADR (0-1 mm)
+      reference product: intermediate (0-1 mm)
+      exists in original database: False
+    - name: ADR (1-4 mm)
+      reference product: intermediate (1-4 mm)
+      exists in original database: False
+    - name: advanced dry recovery (ADR)
+      reference product: intermediate (0-16 mm)
+      exists in original database: False
+    # HAS
+    - name: HAS (0-0.125 mm)
+      reference product: intermediate (0-0.125 mm)
+      exists in original database: False
+    - name: heated air classification (HAS)
+      reference product: intermediate (0-4 mm)
+      exists in original database: False
+    # HVO Diesel
+    - name: crude oil pretreatment
+      reference product: pretreated oil
+      exists in original database: False
+    - name: HVO diesel production (Roque et al 2023)
+      reference product: HVO diesel
+      exists in original database: False
+    - name: HVO diesel, burned in building machine
+      reference product: HVO diesel, burned in building machine
+      exists in original database: False
+
 production pathways:
   # Production of gravel
   # Gravel from ADR
@@ -12,7 +63,6 @@ production pathways:
       exists in original database: False
       name: ADR gravel
       reference product: gravel, crushed, from ADR
-      regionalize: True
       new dataset: True
   # Gravel from virgin sources
   GRAVEL_CRUSHED:
@@ -22,7 +72,6 @@ production pathways:
       exists in original database: True
       name: gravel production, crushed
       reference product: gravel, crushed
-      regionalize: True
   GRAVEL_ROUND:
     production volume:
       variable: Production|Gravel|GRAVEL_ROUND
@@ -30,7 +79,6 @@ production pathways:
       exists in original database: True
       name: gravel and sand quarry operation
       reference product: gravel, round
-      regionalize: True
   # Production of sand
   # Sand from HAS
   SAND_HAS:
@@ -40,7 +88,6 @@ production pathways:
       exists in original database: False
       name: HAS sand
       reference product: sand, from HAS
-      regionalize: True
       new dataset: True
   # Sand from virgin sources
   SAND_QUARRY:
@@ -50,7 +97,6 @@ production pathways:
       exists in original database: True
       name: gravel and sand quarry operation
       reference product: sand
-      regionalize: True
   SAND_RIVER:
     production volume:
       variable: Production|Sand|SAND_RIVER
@@ -58,7 +104,6 @@ production pathways:
       exists in original database: True
       name: sand quarry operation, extraction from river bed
       reference product: sand
-      regionalize: True
   SAND_PIT:
     production volume:
       variable: Production|Sand|SAND_PIT
@@ -73,82 +118,6 @@ production pathways:
       exists in original database: True
       name: zinc mine operation
       reference product: sand
-  # Use 'Dummy' variables to regionalize processes
-  # ADR
-  INTERMEDIATE_ADR_0_1:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: ADR (0-1 mm)
-      reference product: intermediate (0-1 mm)
-      regionalize: True
-      new dataset: True
-  INTERMEDIATE_ADR_1_4:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: ADR (1-4 mm)
-      reference product: intermediate (1-4 mm)
-      regionalize: True
-      new dataset: True
-  INTERMEDIATE_ADR_0_16:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: advanced dry recovery (ADR)
-      reference product: intermediate (0-16 mm)
-      regionalize: True
-      new dataset: True
-  # HAS
-  INTERMEDIATE_HAS_0_0125:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: HAS (0-0.125 mm)
-      reference product: intermediate (0-0.125 mm)
-      regionalize: True
-      new dataset: True
-  INTERMEDIATE_HAS_0_4:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: heated air classification (HAS)
-      reference product: intermediate (0-4 mm)
-      regionalize: True
-      new dataset: True
-  # HVO Diesel
-  CRUDE_OIL_PRE:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: Crude oil Pretreatment
-      reference product: pretreated oil
-      regionalize: True
-      new dataset: True
-  HVO_DIESEL_PROD:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: HVO diesel production (Roque et al 2023)
-      reference product: HVO diesel
-      regionalize: True
-      new dataset: True
-  HVO_DIESEL_BURNED:
-    production volume:
-      variable: DUMMY
-    ecoinvent alias:
-      exists in original database: False
-      name: HVO diesel, burned in building machine
-      reference product: HVO diesel, burned in building machine
-      regionalize: True
-      new dataset: True
 
 markets:
   # Gravel

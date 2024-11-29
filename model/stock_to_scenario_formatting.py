@@ -140,19 +140,6 @@ def reorder(df, scenario, SHARES):
 
         data = data + share_per_route("sand")
 
-    # add dummy variables
-    for region in REGIONS.values():
-        for year in YEARS:
-            data.append(
-                {  # DUMMY
-                    "scenario": scenario,
-                    "region": region,
-                    "variables": "DUMMY",
-                    "unit": "None",
-                    "year": str(year),
-                    "amount": 1,
-                })
-
     df = pd.DataFrame(data)
 
     df = df.pivot_table(index=["scenario", "region", "variables", "unit"], columns="year", values="amount").reset_index()
