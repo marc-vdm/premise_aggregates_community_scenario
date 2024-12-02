@@ -120,8 +120,9 @@ production pathways:
       reference product: sand
 
 markets:
+  # with recycled components
   # Gravel
-  - name: market for gravel, crushed
+  - name: market for gravel, crushed, incl recycled
     reference product: gravel, crushed
     unit: kilogram
     includes:
@@ -132,7 +133,7 @@ markets:
         product: gravel, crushed
     except regions:
       - World
-  - name: market for gravel, round
+  - name: market for gravel, round, incl recycled
     reference product: gravel, round
     unit: kilogram
     includes:
@@ -144,7 +145,7 @@ markets:
     except regions:
       - World
   # Sand
-  - name: market for sand
+  - name: market for sand, incl recycled
     reference product: sand
     unit: kilogram
     includes:
@@ -158,3 +159,37 @@ markets:
         product: sand
     except regions:
       - World
+  # without recycled components, these are only added to compare against the 'recycled' market
+  # Gravel
+  - name: market for gravel, crushed, COMPARE
+    reference product: gravel, crushed, COMPARE
+    unit: kilogram
+    includes:
+      - GRAVEL_CRUSHED
+  - name: market for gravel, round, COMPARE
+    reference product: gravel, round, COMPARE
+    unit: kilogram
+    includes:
+      - GRAVEL_ROUND
+  # Sand
+  - name: market for sand, COMPARE
+    reference product: sand, COMPARE
+    unit: kilogram
+    includes:
+      - SAND_QUARRY
+      - SAND_RIVER
+      - SAND_PIT
+      - SAND_ZINC
+  # without recycled components, these are only added to compare against the 'recycled' market
+  # Gravel
+  - name: market for gravel, recycled, COMPARE
+    reference product: gravel, recycled, COMPARE
+    unit: kilogram
+    includes:
+      - GRAVEL_ADR
+  # Sand
+  - name: market for sand, recycled, COMPARE
+    reference product: sand, recycled, COMPARE
+    unit: kilogram
+    includes:
+      - SAND_HAS
