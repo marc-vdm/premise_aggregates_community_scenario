@@ -71,7 +71,8 @@ ndb = NewDatabase(
     key=KEY,
     keep_source_db_uncertainty=True,
     keep_imports_uncertainty=True,
-    use_absolute_efficiency=True
+    use_absolute_efficiency=True,
+    use_cached_inventories=False,
     )
 
 # update sectors
