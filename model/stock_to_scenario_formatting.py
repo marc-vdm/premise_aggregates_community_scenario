@@ -81,9 +81,9 @@ SHARES = {
 }
 
 GRAVEL_SAND_SPLIT = {
-    "gravel": 0.614,
-    "sand": 0.193
-}
+    "gravel": 0.473833920927938,
+    "sand": 0.352537634914311
+}  # amounts based on sand/gravel use in 1 kg concrete of average of all ecoinvent concrete products
 
 def reorder(df, scenario, SHARES):
     """TODO description"""
@@ -129,7 +129,7 @@ def reorder(df, scenario, SHARES):
         data = data + share_per_route("gravel, round")
 
         data.append(
-            {  # sand has
+            {  # sand HAS
             "scenario": scenario,
             "region": row["Region"],
             "variables": "Production|Sand|SAND_HAS",
