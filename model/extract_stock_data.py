@@ -75,9 +75,9 @@ def clean_and_reorganize(df: pd.DataFrame,
     return df
 
 
-def calculate_availability(df: pd.DataFrame, 
-                           outlfow_conversion_rate: Union[float, dict, int] = 1.0,
-                           outlfow_conversion_abs: Union[float, dict, int] = -1.0,
+def calculate_availability(df: pd.DataFrame,
+                           outflow_conversion_rate: Union[float, dict, int] = 1.0,
+                           outflow_conversion_abs: Union[float, dict, int] = -1.0,
                            inflow_conversion_rate: Union[float, dict, int] = 1.0,
                            key_type: str = "year") -> pd.DataFrame:
     """calculate and add columns for 'aggregate stock', 'recycled inflow'
@@ -86,7 +86,7 @@ def calculate_availability(df: pd.DataFrame,
     inflow. Takes into account stock for unused recycled production. Stock is 
     reset when the 'Region' changes.
     
-    Stock is moderated by the outlfow conversion rate (outflow_conversion_rate),
+    Stock is moderated by the outflow conversion rate (outflow_conversion_rate),
     the absolute production (outflow_conversion_abs) and the inflow conversion rate.
     The outflow conversion rate limits the building outflow as a percentage that
     can be converted (e.g. 0.75 = 75% of buildings can be recycled in a given year).
@@ -125,24 +125,24 @@ def calculate_availability(df: pd.DataFrame,
     outflow_col= df.columns[3]  # named 'outflow (kt)'
 
     # set conversion rates to correct format
-    outlfow_conversion_rate = convert_check_types(outlfow_conversion_rate)
-    outlfow_conversion_abs = convert_check_types(outlfow_conversion_abs)
+    outflow_conversion_rate = convert_check_types(outflow_conversion_rate)
+    outflow_conversion_abs = convert_check_types(outflow_conversion_abs)
     inflow_conversion_rate = convert_check_types(inflow_conversion_rate)
 
     # check if conversion rates are possible
-    for key, value in outlfow_conversion_rate.items():
+    for key, value in outflow_conversion_rate.items():
         if value > 1 or value < 0:
             raise BaseException(f"conversions rates must be higher or equal to 0 (0%) "
                                 f"and lower or equal to 1 (100%), rate is: "
                                 f"stock_conversion_rate: {value} for {key}")
-    for key, value in outlfow_conversion_abs.items():
+    for key, value in outflow_conversion_abs.items():
         if value < 0 and not value == -1:
             raise BaseException(f"absolute production must be higher or equal to 0 {UNIT} "
                                 f"or be set to -1 for no limit: "
                                 f"stock_conversion_abs: {value} for {key}")
         elif value == -1:
             # set a -1 rate to infinity
-            outlfow_conversion_abs[key] = np.inf
+            outflow_conversion_abs[key] = np.inf
 
     # check key_type:
     if key_type not in ["year", "region", "year/region", "region/year"]:
@@ -169,8 +169,8 @@ def calculate_availability(df: pd.DataFrame,
             key = f'{row["year"]}/{row["region"]}'
                 
         # find available outflow and inflow, moderated by conversions
-        ocr = outlfow_conversion_rate.get(key, outlfow_conversion_rate["any"])
-        oca = outlfow_conversion_abs.get(key, outlfow_conversion_abs["any"])
+        ocr = outflow_conversion_rate.get(key, outflow_conversion_rate["any"])
+        oca = outflow_conversion_abs.get(key, outflow_conversion_abs["any"])
         icr = inflow_conversion_rate.get(key, inflow_conversion_rate["any"])
 
         available_outflow = min(
@@ -224,7 +224,7 @@ def calculate_availability(df: pd.DataFrame,
         # calculate substitution rate
         substitution = recycled_inflow / row[inflow_col] if row[inflow_col] != 0 else 0
 
-        # show the last row
+        # make new last row
         last_row = {
             "Region": row["Region"],  # the region
             "year": row["year"],  # the year
@@ -256,10 +256,10 @@ df_clean = clean_and_reorganize(df_orig)
 # first number is lower rate, second higher, last the steps
 # steps is 32, first step is lowest number (but we want 1 higher)
 # the first is deleted, the 31 remaining are 2020-2050
-outlfow_conversion_rate = np.linspace(0, 0.5, 32)
-outlfow_conversion_rate = {2020 + i: rate for i, rate in enumerate(outlfow_conversion_rate[1:])}
-outlfow_conversion_rate["any"] = 0
-# outlfow_conversion_rate = 1  # set if no limit
+outflow_conversion_rate = np.linspace(0, 0.5, 32)
+outflow_conversion_rate = {2020 + i: rate for i, rate in enumerate(outflow_conversion_rate[1:])}
+outflow_conversion_rate["any"] = 0
+# outflow_conversion_rate = 1  # set if no limit
 
 inflow_conversion_rate = np.linspace(0.5, 0.750, 32)
 inflow_conversion_rate = {2020 + i: rate for i, rate in enumerate(inflow_conversion_rate[1:])}
@@ -268,8 +268,8 @@ inflow_conversion_rate["any"] = 0.5
 
 # calculate new stock data
 t = time()
-df_done = calculate_availability(df_clean, 
-                                 outlfow_conversion_rate=outlfow_conversion_rate,
+df_done = calculate_availability(df_clean,
+                                 outflow_conversion_rate=outflow_conversion_rate,
                                  inflow_conversion_rate=inflow_conversion_rate)
 print(f"Data converted: {df_status(df_done, time() - t)}")
 
