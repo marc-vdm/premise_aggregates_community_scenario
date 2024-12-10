@@ -22,38 +22,9 @@ import numpy as np
 from copy import deepcopy
 from time import time
 
-from utils import df_status, UNIT
+from utils import df_status
+from statics import UNIT, IMAGE_REGIONS
 
-# global variables:
-REGIONS = {
-    # IMAGE regions: https://web.archive.org/web/20231128100726/https://models.pbl.nl/image/index.php/Region_classification_map
-    1:  "Canada",
-    2:  "USA",
-    3:  "Mexico",
-    4:  "Central America",
-    5:  "Brazil",
-    6:  "Rest of South America",
-    7:  "Northern Africa",
-    8:  "Western Africa",
-    9:  "Eastern Africa",
-    10: "South Africa",
-    11: "Western Europe",
-    12: "Central Europe",
-    13: "Turkey",
-    14: "Ukraine region",
-    15: "Central Asia",
-    16: "Russia region",
-    17: "Middle East",
-    18: "India",
-    19: "Korea region",
-    20: "China region",
-    21: "Southeastern Asia",
-    22: "Indonesia region",
-    23: "Japan",
-    24: "Oceania",
-    25: "Rest of South Asia",
-    26: "Rest of Southern Africa",
-    }
 
 def clean_and_reorganize(df: pd.DataFrame, 
                          prints: str ="end") -> pd.DataFrame:
@@ -80,7 +51,7 @@ def clean_and_reorganize(df: pd.DataFrame,
         print(f"Filtered to only non-'stock' material flows: {df_status(df)}")
 
     # write correct region names from region codes
-    df["Region"] = df["Region"].apply(lambda x: REGIONS[x])
+    df["Region"] = df["Region"].apply(lambda x: IMAGE_REGIONS[x])
     
     # merge all "type" and "area" for given "Region" and "flow"
     df = df.drop(columns=["type", "area", "material"])
