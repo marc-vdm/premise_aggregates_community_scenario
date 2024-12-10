@@ -131,8 +131,6 @@ markets:
     replaces:
       - name: market for gravel, crushed
         product: gravel, crushed
-    except regions:
-      - World
   - name: market for gravel, round, incl recycled
     reference product: gravel, round
     unit: kilogram
@@ -142,8 +140,6 @@ markets:
     replaces:
       - name: market for gravel, round
         product: gravel, round
-    except regions:
-      - World
   # Sand
   - name: market for sand, incl recycled
     reference product: sand
@@ -157,8 +153,6 @@ markets:
     replaces:
       - name: market for sand
         product: sand
-    except regions:
-      - World
   # without recycled components, these are only added to compare against the 'recycled' market
   # Gravel
   - name: market for gravel, crushed, COMPARE

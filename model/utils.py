@@ -7,6 +7,3 @@ def df_status(df, _t = None
     if _t:
         status["time taken"] = f"{round(_t, 1)}s"
     return status
-
-# global unit
-UNIT = "kt"  # unit of flows

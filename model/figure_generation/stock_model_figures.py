@@ -2,37 +2,12 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
 
-REGION_COLORS = {
-    # IMAGE regions: https://web.archive.org/web/20231128100726/https://models.pbl.nl/image/index.php/Region_classification_map
-    "Canada": "#c6e3f9",
-    "USA": "#47afe8",
-    "Mexico": "#006e9a",
-    "Central America": "#656916",
-    "Brazil": "#989a34",
-    "Rest of South America": "#c3c386",
-    "Northern Africa": "#ac4a7f",
-    "Western Africa": "#be789e",
-    "Eastern Africa": "#debed1",
-    "South Africa": "#6f0045",
-    "Western Europe": "#e7d9b5",
-    "Central Europe": "#C8AB5B",
-    "Turkey": "#997C6C",
-    "Ukraine region": "#684132",
-    "Central Asia": "#492B66",
-    "Russia region": "#CCC5DA",
-    "Middle East": "#776290",
-    "India": "#CB8517",
-    "Korea region": "#8FBA5F",
-    "China region": "#D8E5C5",
-    "Southeastern Asia": "#FFF6A9",
-    "Indonesia region": "#FFEE31",
-    "Japan": "#21803D",
-    "Oceania": "#91A18B",
-    "Rest of South Asia": "#F2CD2E",
-    "Rest of Southern Africa": "#9D0063",
-    }
+import os
 
-UNIT = "kt"
+from ..statics import UNIT, IMAGE_REGION_COLORS
+
+PATH = "./stock_model_figures"
+FIGURE_FORMAT = ".png"
 
 
 df = pd.read_csv("../filtered_to_list.csv")
@@ -46,12 +21,10 @@ def plot_col(df, col_name):
 
     _df = df.pivot_table(index=["Region"], columns="year", values=[col_name]).reset_index()
 
-    fig = plt.figure(1)
-    ax = fig.add_subplot(111)
 
     for _, row in _df.iterrows():
 
-        color = REGION_COLORS.get(row.values[0], "#000000")
+        color = IMAGE_REGION_COLORS.get(row.values[0], "#000000")
         ax.plot(YEARS, row.values[1:], label=row.values[0], color=color)
 
     lgd = ax.legend(bbox_to_anchor=(1.01, 1), loc=2, ncol=2, borderaxespad=0.)
@@ -79,11 +52,11 @@ def plot_2col(df, col_name1, col_name2):
     ax = fig.add_subplot(111)
 
     for _, row in _df_col1.iterrows():
-        color = REGION_COLORS.get(row.values[0], "#000000")
+        color = IMAGE_REGION_COLORS.get(row.values[0], "#000000")
         ax.plot(YEARS, row.values[1:], label=row.values[0], color=color)
 
     for _, row in _df_col2.iterrows():
-        color = REGION_COLORS.get(row.values[0], "#000000")
+        color = IMAGE_REGION_COLORS.get(row.values[0], "#000000")
         ax.plot(YEARS, row.values[1:], label=row.values[0], color=color, linestyle="dashed")
 
     lgd = ax.legend(bbox_to_anchor=(1.01, 1), loc=2, ncol=2, borderaxespad=0.)
@@ -110,11 +83,11 @@ cmap = plt.get_cmap("viridis")
 colors = [cmap(i) for i in np.linspace(0, 1, len(YEARS))]
 
 for _, row in _df_col1.iterrows():
-    color = REGION_COLORS.get(row.values[0], "#000000")
+    color = IMAGE_REGION_COLORS.get(row.values[0], "#000000")
     ax.plot(YEARS, row.values[1:], label=row.values[0], color=color, linewidth=1)
 
 for _, row in _df_col2.iterrows():
-    color = REGION_COLORS.get(row.values[0], "#000000")
+    color = IMAGE_REGION_COLORS.get(row.values[0], "#000000")
     ax.plot(YEARS, row.values[1:], label=row.values[0], color=color, linestyle="dashed", linewidth=1)
 
 lgd = ax.legend(bbox_to_anchor=(1.01, 1), loc=2, ncol=2, borderaxespad=0.)
@@ -126,11 +99,14 @@ ax.grid('on')
 ax = fig.add_subplot(212)
 
 for _, row in _df_col3.iterrows():
-    color = REGION_COLORS.get(row.values[0], "#000000")
+    color = IMAGE_REGION_COLORS.get(row.values[0], "#000000")
     ax.plot(YEARS, row.values[1:], label=row.values[0], color=color)
 ax.set_title(f"Substitution per region")
 ax.grid('on')
 
 plt.show()
 
-# fig.savefig(f"../figure_test_In-and-Outflow.svg", bbox_extra_artists=(lgd,), bbox_inches='tight')
+filename = "figure_test_In-and-Outflow"
+filename_format = f"{filename}.{FIGURE_FORMAT}"
+file = os.path.join(PATH, filename_format)
+fig.savefig(file, bbox_extra_artists=(lgd,), bbox_inches="tight")
