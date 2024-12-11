@@ -12,17 +12,18 @@ df_orig = pd.read_csv("filtered_to_list.csv")
 print(f"Data loaded: {df_status(df_orig)}")
 
 # filter to only scenario data and right region names and drop irrelevant cols
-YEARS = [2020, 2025, 2030, 2035, 2040, 2045, 2050]
+YEARS = [2025, 2030, 2035, 2040, 2045, 2050]
 
 # filter on years
 df_clean = df_orig[df_orig["year"].isin(YEARS)]
 # rename regions
 df_clean = df_clean.replace({"Region": PREMISE_REGIONS})
 # drop irrelevant cols
-df_clean = df_clean[["Region", "year", f"inflow ({UNIT})", f"recycled inflow ({UNIT})"]]
+df_clean = df_clean[["Region", "year",
+                     f"all sand supply ({UNIT})", f"recycled sand supply ({UNIT})",
+                     f"all gravel supply ({UNIT})", f"recycled gravel supply ({UNIT})"]]
 
 print(f"df cleaned: {df_status(df_clean)}")
-
 
 
 def reorder(df, scenario, MARKET_SHARES):
@@ -38,7 +39,13 @@ def reorder(df, scenario, MARKET_SHARES):
         """
 
         _data = []
-        total_conventional = float(row[f"inflow ({UNIT})"]) - float(row[f"recycled inflow ({UNIT})"])
+
+        # infer aggregate type column
+        _share_type = share_type.split(",")[0]
+
+        total_conventional = (float(
+            row[f"all {_share_type} supply ({UNIT})"])
+            - float(row[f"recycled {_share_type} supply ({UNIT})"]))
         for variable, share in get_shares(share_type, row["Region"]).items():
             material = share_type.split(',')[0].capitalize()
             var_name = f"Production|{material}|{variable}"
@@ -48,7 +55,7 @@ def reorder(df, scenario, MARKET_SHARES):
                 "variables": var_name,
                 "unit": UNIT,
                 "year": str(row["year"]),
-                "amount": total_conventional * share * GRAVEL_SAND_USE_SPLIT[material.lower()],
+                "amount": total_conventional * share,
             }
             _data.append(_row)
         return _data
@@ -64,7 +71,7 @@ def reorder(df, scenario, MARKET_SHARES):
             "variables": "Production|Gravel|GRAVEL_ADR",
             "unit": UNIT,
             "year": str(row["year"]),
-            "amount": float(row[f"recycled inflow ({UNIT})"]) * GRAVEL_SAND_USE_SPLIT["gravel"],
+            "amount": float(row[f"recycled gravel supply ({UNIT})"]),
         })
 
         data = data + share_per_route("gravel, crushed")
@@ -77,7 +84,7 @@ def reorder(df, scenario, MARKET_SHARES):
             "variables": "Production|Sand|SAND_HAS",
             "unit": UNIT,
             "year": str(row["year"]),
-            "amount": float(row[f"recycled inflow ({UNIT})"]) * GRAVEL_SAND_USE_SPLIT["sand"],
+            "amount": float(row[f"recycled sand supply ({UNIT})"]),
         })
 
         data = data + share_per_route("sand")
