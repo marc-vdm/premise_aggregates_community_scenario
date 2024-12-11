@@ -1,4 +1,4 @@
-Region,year,inflow (kt),outflow (kt),all sand demand (kt),rec sand supply (kt),sand stock (kt),sand substitution,all gravel demand (kt),rec gravel supply (kt),gravel stock (kt),gravel substitution
+Region,year,inflow (kt),outflow (kt),all sand supply (kt),recycled sand supply (kt),sand stock (kt),sand substitution,all gravel supply (kt),recycled gravel supply (kt),gravel stock (kt),gravel substitution
 Brazil,1970,55996.37857243274,6584.1356115279505,19553.1235046111,0.0,0.0,0.0,25736.63581803596,0.0,0.0,0.0
 Brazil,1971,54114.36433935615,6841.611645793642,18895.95142179182,0.0,0.0,0.0,24871.63854221395,0.0,0.0,0.0
 Brazil,1972,102760.42765317507,7106.9929244576215,35882.451410498295,0.0,0.0,0.0,47229.97755282338,0.0,0.0,0.0

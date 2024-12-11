@@ -243,12 +243,12 @@ def calculate_availability(df: pd.DataFrame,
             "year": row["year"],  # the year
             inflow_col: row[inflow_col],  # how much material goes IN stock
             outflow_col: row[outflow_col],  # how much material come OUT of stock (available for recycling)
-            f"all sand demand ({UNIT})": all_sand_demand,  # how much sand is required for inflow
-            f"rec sand supply ({UNIT})": rec_sand_supply,  # how much sand is supplied from recycling
+            f"all sand supply ({UNIT})": all_sand_demand,  # how much sand is required for inflow
+            f"recycled sand supply ({UNIT})": rec_sand_supply,  # how much sand is supplied from recycling
             f"sand stock ({UNIT})": sand_stock,  # how much sand stock there is
             f"sand substitution": sand_substitution,  # how much sand is substituted
-            f"all gravel demand ({UNIT})": all_gravel_demand,  # how much gravel is required for inflow
-            f"rec gravel supply ({UNIT})": rec_gravel_supply,  # how much gravel is supplied from recycling
+            f"all gravel supply ({UNIT})": all_gravel_demand,  # how much gravel is required for inflow
+            f"recycled gravel supply ({UNIT})": rec_gravel_supply,  # how much gravel is supplied from recycling
             f"gravel stock ({UNIT})": gravel_stock,  # how much gravel stock there is
             f"gravel substitution": gravel_substitution,  # how much gravel is substituted
         }
