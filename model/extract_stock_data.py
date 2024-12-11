@@ -277,8 +277,11 @@ df_clean = clean_and_reorganize(df_orig)
 # steps is 32, first step is lowest number (but we want 1 higher)
 # the first is deleted, the 31 remaining are 2020-2050
 
-# assume 5% of building stock outflow can never be recycled
-outflow_conversion_rate = 0.95
+# assume market share of 0% to (max) 50% growing between 2025-2050
+outflow_conversion_rate = np.linspace(0, 0.5, (2050 - 2025 + 2))
+outflow_conversion_rate = {2025 + i: rate for i, rate in enumerate(outflow_conversion_rate[1:])}
+outflow_conversion_rate["any"] = 0
+# outflow_conversion_rate = 1  # set if no limit
 
 # assume market share of 0% to (max) 50% growing between 2025-2050
 inflow_conversion_rate = np.linspace(0, 0.5, (2050 - 2025 + 2))
@@ -294,6 +297,5 @@ df_done = calculate_availability(df_clean,
 print(f"Data converted: {df_status(df_done, time() - t)}")
 
 # export to excel
-# df_done.to_excel("filtered_to_list.xlsx", index=False)
 df_done.to_csv("filtered_to_list.csv", index=False)
 print(f"Exported data | Total time taken: {round(time() - ts, 1)}s")
