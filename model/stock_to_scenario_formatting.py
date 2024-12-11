@@ -3,7 +3,7 @@ import pandas as pd
 
 from utils import df_status
 
-from statics import UNIT, PREMISE_REGIONS, MARKET_SHARES, GRAVEL_SAND_USE_SPLIT
+from statics import UNIT, PREMISE_REGIONS, MARKET_SHARES
 
 
 # read data
