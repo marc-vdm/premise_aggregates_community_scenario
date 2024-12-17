@@ -8,8 +8,10 @@ bd.projects.set_current(PROJECT)
 
 # database settings
 SOURCE_DB = "ecoinvent-3.10.1-cutoff"
+# SOURCE_DB = "premise_superstructure"
 SOURCE_V = "3.10"
 NEW_DB_NAME = "premise_aggregates"
+# NEW_DB_NAME = "test"
 
 # key
 with open("./key.txt", "r") as f:
@@ -21,9 +23,6 @@ aggregates = Package(fp)
 
 # set scenarios
 SCENARIOS = [
-    {"model": "image", "pathway": "SSP2-Base", "year": 2020, "external scenarios":
-        [{"scenario": "SSP2-Base-image", "data": aggregates}]
-     },
     {"model": "image", "pathway": "SSP2-Base", "year": 2025, "external scenarios":
         [{"scenario": "SSP2-Base-image", "data": aggregates}]
      },
@@ -81,6 +80,6 @@ ndb.update(SECTORS)
 # write to BW a superstructure
 ndb.write_superstructure_db_to_brightway(NEW_DB_NAME)
 
-# write to BW db
+# # write to BW db
 # names = [f"{NEW_DB_NAME} - {scenario['year']}" for scenario in SCENARIOS]
 # ndb.write_db_to_brightway(names)

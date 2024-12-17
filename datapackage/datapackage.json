@@ -1,8 +1,8 @@
 {
     "profile": "data-package",
-    "name": "concrete-recycling",
-    "title": "Concrete recycling",
-    "description": "Concrete recycling scenarios from IMAGE SSP2",
+    "name": "concrete-aggregates-recycling",
+    "title": "Concrete aggregates recycling",
+    "description": "Concrete aggregates recycling scenarios from IMAGE SSP2",
     "version": "0.0.1",
     "contributors":[{
     "title": "Marc van der Meide",
@@ -56,11 +56,6 @@
                     {
                         "name": "unit",
                         "type": "string",
-                        "format": "default"
-                    },
-                    {
-                        "name": "2020",
-                        "type": "number",
                         "format": "default"
                     },
                     {

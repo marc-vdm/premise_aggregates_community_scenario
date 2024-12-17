@@ -83,7 +83,7 @@ Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,type,comment,reference product,,,,,,
 heated air classification (has),1,aggregate_LCI,GLO,unit (tonne),production,,intermediate (0-4 mm),,,,,,
 adr (1-4 mm),1000,aggregate_LCI,GLO,kilogram,technosphere,,intermediate (1-4 mm),,,,,,
-"biodiesel, burned in building machine",590.33,aggregate_LCI,GLO,megajoule,technosphere,HVO Diesel burned in HAS: 17.71l/t --> 1/0.03MJ/l --> 17.71/0.03 = 590.33MJ,"biodiesel, burned in building machine",,,,,,
+"hvo diesel, burned in building machine",590.33,aggregate_LCI,GLO,megajoule,technosphere,HVO Diesel burned in HAS: 17.71l/t --> 1/0.03MJ/l --> 17.71/0.03 = 590.33MJ,"hvo diesel, burned in building machine",,,,,,
 "market group for electricity, medium voltage",3.13,SSP2,Europe without Switzerland,kilowatt hour,technosphere,,"electricity, medium voltage",,,,,,
 ,,,,,,,,,,,,,
 Activity,ball milling,,,,,,,,,,,,
@@ -100,7 +100,7 @@ adr (0-1 mm),0.0008129,aggregate_LCI,GLO,kilogram,technosphere,intermediate (0-1
 has (0-0.125 mm),0.0001871,aggregate_LCI,GLO,kilogram,technosphere,intermediate (0-0.125 mm),,,,,,,
 "market group for electricity, medium voltage",0.03005,SSP2,Europe without Switzerland,kilowatt hour,technosphere,"electricity, medium voltage",,,,,,,
 ,,,,,,,,,,,,,
-Activity,"biodiesel, burned in building machine",,,,,,,,,,,,
+Activity,"hvo diesel, burned in building machine",,,,,,,,,,,,
 activity type,ordinary transforming activity,,,,,,,,,,,,
 comment,"Duplicated and edited from 'diesel, burned in building machine'.
 Edited for HVO diesel based on: https://www.sciencedirect.com/science/article/pii/S0959652623001476?via%3Dihub
@@ -124,10 +124,10 @@ This module is based on the data included in the report Oekoinventare von Energi
 Geography:  Certain elementary flows or intermediate product flows are extrapolated from RER and CH conditions.
 Technology:  Average current technology for one typical machine representing the category.",,,,,,,,,,,,
 location,GLO,,,,,,,,,,,,
-reference product,"biodiesel, burned in building machine",,,,,,,,,,,,
+reference product,"hvo diesel, burned in building machine",,,,,,,,,,,,
 type,process,,,,,,,,,,,,
 unit,megajoule,,,,,,,,,,,,
-code,biodiesel_burned_in_building_machine,,,,,,,,,,,,
+code,hvo_diesel_burned_in_building_machine,,,,,,,,,,,,
 classifications,ISIC rev.4 ecoinvent::4312:Site preparation,,,,,,,,,,,,
 Exchanges,,,,,,,,,,,,,
 name,amount,database,location,unit,categories,type,uncertainty type,loc,scale,comment,pedigree,reference product,scale without pedigree
@@ -151,11 +151,82 @@ Nitrogen oxides,0.000690877730931391,biosphere3,,kilogram,air,biosphere,2,-6.878
 Selenium IV,2.24223840551936E-10,biosphere3,,kilogram,air,biosphere,2,-22.1757000005709,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
 Sulfur dioxide,2.26140283633576E-05,biosphere3,,kilogram,air,biosphere,2,-10.6542638459327,0.241039415863879,,1::5::5::3::1::1,,0.1
 Zinc II,2.24223840551936E-08,biosphere3,,kilogram,air,biosphere,2,-17.5705298145828,0.835523787812172,,1::5::5::3::1::1,,0.806225774829855
-"biodiesel, burned in building machine",1,aggregate_LCI,GLO,megajoule,,production,0,1,,EcoSpold01Location=GLO,,"biodiesel, burned in building machine",
+"hvo diesel, burned in building machine",1,aggregate_LCI,GLO,megajoule,,production,0,1,,EcoSpold01Location=GLO,,"hvo diesel, burned in building machine",
+hvo diesel production (roque et al 2023),0.0224223840551936,aggregate_LCI,GLO,kilogram,,technosphere,,,,replace diesel input,,hvo diesel,
 market for building machine,1.28401686469912E-07,SSP2,GLO,unit,,technosphere,2,-15.8254260369955,0.598414572015087,EcoSpold01Location=RER,1::5::5::3::1::1,building machine,0.556776436283002
 market for lubricating oil,8.56995017247929E-05,SSP2,RER,kilogram,,technosphere,2,-9.32198727227679,0.241039415863879,EcoSpold01Location=RER,1::5::5::3::1::1,lubricating oil,0.1
 market for lubricating oil,0.000406826370256809,SSP2,RoW,kilogram,,technosphere,2,-7.76444779797025,0.241039415863879,EcoSpold01Location=RER,1::5::5::3::1::1,lubricating oil,0.1
 market for waste mineral oil,-0.000353984972317822,SSP2,RoW,kilogram,,technosphere,2,-7.90357982253074,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
 market for waste mineral oil,-0.000135194033176058,SSP2,Europe without Switzerland,kilogram,,technosphere,2,-8.86612325436206,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
 market for waste mineral oil,-3.34686648772305E-06,SSP2,CH,kilogram,,technosphere,2,-12.5648097523838,0.135277492584687,EcoSpold01Location=CH,1::5::2::3::1::1,waste mineral oil,0.1
-"biodiesel, from ",0.0224223840551936,aggregate_LCI,CEU,kilogram,,technosphere,,,,replace diesel input,,biodiesel,
+,,,,,,,,,,,,,
+Activity,hvo diesel production (roque et al 2023),,,,,,,,,,,,
+comment,"LCI based on Table 5 in https://www.sciencedirect.com/science/article/pii/S0959652623001476
+
+density: 780kg/m3 (table 2 in source)
+",,,,,,,,,,,,
+location,GLO,,,,,,,,,,,,
+reference product,hvo diesel,,,,,,,,,,,,
+type,process,,,,,,,,,,,,
+unit,kilogram,,,,,,,,,,,,
+code,hvo_diesel_production_roque_et_al_2023,,,,,,,,,,,,
+classifications,ISIC rev.4 ecoinvent::2011:Manufacture of basic chemicals,,,,,,,,,,,,
+Exchanges,,,,,,,,,,,,,
+name,amount,database,location,unit,categories,type,comment,reference product,,,,,
+"Carbon dioxide, non-fossil",0.048,biosphere3,,kilogram,air,biosphere,,,,,,,
+hvo diesel production (roque et al 2023),1,aggregate_LCI,GLO,kilogram,,production,,hvo diesel,,,,,
+catalyst production,0.00298,aggregate_LCI,GLO,kilogram,,technosphere,,catalyst,,,,,
+crude oil pretreatment,1.191,aggregate_LCI,GLO,kilogram,,technosphere,,pretreated oil,,,,,
+"market for heat, from steam, in chemical industry",0.029,SSP2,RER,megajoule,,technosphere,,"heat, from steam, in chemical industry",,,,,
+"market for hydrogen, gaseous, medium pressure, merchant",0.042,SSP2,RER,kilogram,,technosphere,,"hydrogen, gaseous, medium pressure, merchant",,,,,
+market for tap water,0.004,SSP2,Europe without Switzerland,kilogram,,technosphere,Cooling water,tap water,,,,,
+market for tap water,0.025,SSP2,Europe without Switzerland,kilogram,,technosphere,Process water,tap water,,,,,
+market for wastewater from vegetable oil refinery,0.000113,SSP2,GLO,cubic meter,,technosphere,assumed 1m3=1000kg,wastewater from vegetable oil refinery,,,,,
+"market group for electricity, high voltage",0.0297222,SSP2,Europe without Switzerland,kilowatt hour,,technosphere,107MJ (1MJ==0.2778kWh),"electricity, high voltage",,,,,
+,,,,,,,,,,,,,
+Activity,crude oil pretreatment,,,,,,,,,,,,
+comment,"Based on Table 5 in https://www.sciencedirect.com/science/article/pii/S0959652623001476
+Required input for production of HVO diesel
+
+Assumed all palm oil
+Assumed 'Process chemicals' to be 50/50 organic and inorganic",,,,,,,,,,,,
+location,GLO,,,,,,,,,,,,
+reference product,pretreated oil,,,,,,,,,,,,
+type,process,,,,,,,,,,,,
+unit,kilogram,,,,,,,,,,,,
+code,crude_oil_pretreatment,,,,,,,,,,,,
+classifications,ISIC rev.4 ecoinvent::2011:Manufacture of basic chemicals,,,,,,,,,,,,
+Exchanges,,,,,,,,,,,,,
+name,amount,database,location,unit,type,comment,reference product,,,,,,
+crude oil pretreatment,1,aggregate_LCI,GLO,kilogram,production,,pretreated oil,,,,,,
+"market for chemical, inorganic",0.00159529806884971,SSP2,GLO,kilogram,technosphere,half of 'process chemicals',"chemical, inorganic",,,,,,
+"market for chemical, organic",0.00159529806884971,SSP2,GLO,kilogram,technosphere,half of 'process chemicals',"chemical, organic",,,,,,
+"market for heat, from steam, in chemical industry",0.551637279596977,SSP2,RER,megajoule,technosphere,,"heat, from steam, in chemical industry",,,,,,
+"market for palm oil, crude",1.01931150293871,SSP2,GLO,kilogram,technosphere,assume all crude oil is from palm-oil,"palm oil, crude",,,,,,
+market for tap water,0.0587741393786734,SSP2,Europe without Switzerland,kilogram,technosphere,Cooling water,tap water,,,,,,
+market for tap water,0.0235096557514694,SSP2,Europe without Switzerland,kilogram,technosphere,Process water,tap water,,,,,,
+market for wastewater from vegetable oil refinery,-9.31989924433249E-05,SSP2,GLO,cubic meter,technosphere,assumed 1m3=1000kg,wastewater from vegetable oil refinery,,,,,,
+"market group for electricity, high voltage",0.0116615449202351,SSP2,Europe without Switzerland,kilowatt hour,technosphere,50MJ (1MJ==0.2778kWh),"electricity, high voltage",,,,,,
+"treatment of municipal solid waste, municipal incineration",-0.0109151973131822,SSP2,NL,kilogram,technosphere,,municipal solid waste,,,,,,
+,,,,,,,,,,,,,
+Activity,catalyst production,,,,,,,,,,,,
+comment,"Based on: https://pubs.acs.org/doi/10.1021/acs.jpcc.2c05927 chapter 2.2 weight fractions
+
+
+15 wt % Mo, 
+3.67 wt % Ni, 
+2 wt % P (referenced to MoO3, NiO, and P2O5), 
+and MA in a molar ratio of 1.2 per atom Mo",,,,,,,,,,,,
+location,GLO,,,,,,,,,,,,
+reference product,catalyst,,,,,,,,,,,,
+type,process,,,,,,,,,,,,
+unit,kilogram,,,,,,,,,,,,
+code,catalyst_production,,,,,,,,,,,,
+classifications,ISIC rev.4 ecoinvent::2420:Manufacture of basic precious and other non-ferrous metals,,,,,,,,,,,,
+Exchanges,,,,,,,,,,,,,
+name,amount,database,location,unit,type,reference product,,,,,,,
+catalyst production,1,aggregate_LCI,GLO,kilogram,production,catalyst,,,,,,,
+market for maleic anhydride,0.15,SSP2,GLO,kilogram,technosphere,maleic anhydride,,,,,,,
+market for molybdenum trioxide,0.15,SSP2,GLO,kilogram,technosphere,molybdenum trioxide,,,,,,,
+"market for nickel, class 1",0.0367,SSP2,GLO,kilogram,technosphere,"nickel, class 1",,,,,,,
+"market for phosphoric acid, industrial grade, without water, in 85% solution state",0.02,SSP2,GLO,kilogram,technosphere,"phosphoric acid, industrial grade, without water, in 85% solution state",,,,,,,

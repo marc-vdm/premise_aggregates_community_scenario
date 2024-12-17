@@ -1,5 +1,6 @@
 # imports
 import pandas as pd
+import os
 
 from utils import df_status
 
@@ -65,6 +66,18 @@ def reorder(df, scenario, MARKET_SHARES):
     for _, row in df.iterrows():
 
         data.append(
+            {  # sand HAS
+                "scenario": scenario,
+                "region": row["Region"],
+                "variables": "Production|Sand|SAND_HAS",
+                "unit": UNIT,
+                "year": str(row["year"]),
+                "amount": float(row[f"recycled sand supply ({UNIT})"]),
+            })
+
+        data = data + share_per_route("sand")
+
+        data.append(
             { # gravel ADR
             "scenario": scenario,
             "region": row["Region"],
@@ -77,18 +90,6 @@ def reorder(df, scenario, MARKET_SHARES):
         data = data + share_per_route("gravel, crushed")
         data = data + share_per_route("gravel, round")
 
-        data.append(
-            {  # sand HAS
-            "scenario": scenario,
-            "region": row["Region"],
-            "variables": "Production|Sand|SAND_HAS",
-            "unit": UNIT,
-            "year": str(row["year"]),
-            "amount": float(row[f"recycled sand supply ({UNIT})"]),
-        })
-
-        data = data + share_per_route("sand")
-
     df = pd.DataFrame(data)
 
     df = df.pivot_table(index=["scenario", "region", "variables", "unit"], columns="year", values="amount").reset_index()
@@ -99,4 +100,6 @@ df_reorder = reorder(df_clean, "SSP2-Base-image", MARKET_SHARES)
 
 print(f"df cleaned: {df_status(df_reorder)}")
 
-df_reorder.to_csv("../scenario_data/scenario_data.csv", index=False)
+export_path = os.path.join(*[os.getcwd(), "..", "datapackage", "scenario_data", "scenario_data.csv"])
+
+df_reorder.to_csv(export_path, index=False)
