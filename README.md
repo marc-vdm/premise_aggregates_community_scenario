@@ -1,15 +1,15 @@
 ## Description
-Premise community scenario for production of (recycled) aggregates for concrete
+Premise community scenario for production of (recycled) sand and gravel (together aggregates) for concrete production.
 
 ## Sourced from publication
-None
+Recovering sand and gravel from End-of-Life concrete: The global potential
 
 ## Ecoinvent database compatibility
 ecoinvent 3.10 cut-off
 
 ## IAM scenario compatibility
 Compatible with the following IAM scenarios:
-* IMAGE SSP2-Base
+* IMAGE SSP2-Base 2025-2050
 
 ## How to use it?
 
