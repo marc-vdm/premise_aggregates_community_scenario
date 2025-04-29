@@ -7,7 +7,7 @@ import os
 from model.statics import UNIT, PREMISE_REGION_COLORS, GRAVEL_SAND_USE_SPLIT, METHODS, METHOD_SAFE_NAME
 
 IMPORT_PATH_LCA = os.path.join(*[os.getcwd(), "..", "lca_results"])
-IMPORT_PATH_SCENARIO = os.path.join(*[os.getcwd(), "..", "scenario_data", "scenario_data.csv"])
+IMPORT_PATH_SCENARIO = os.path.join(*[os.getcwd(), "..", "datapackage", "scenario_data", "scenario_data.csv"])
 EXPORT_PATH = os.path.join(*[os.getcwd(), "lca_results_figures"])
 
 FIGURE_FORMAT = "png"
@@ -23,7 +23,7 @@ def overall_scores_to_df(path: str) -> pd.DataFrame:
         row = row.replace("\n", " ")
         row = row.replace("COMPARE", "")
         items = [item.strip(" ,") for item in row.split("|")]
-        new_index.append((items[0], items[2]))  # reference product, activity name, location
+        new_index.append((items[0], items[2]))  # reference product, location
 
     new_index = pd.MultiIndex.from_tuples(new_index, names=["reference product", "location"])
     return pd.DataFrame(data=_df.values, index=new_index, columns=_df.columns)
@@ -40,7 +40,7 @@ def combine_aggregates(dfg, dfs):
     dfgr = dfg[dfg.index.get_level_values("reference product") == "gravel, recycled"] * GRAVEL_SAND_USE_SPLIT["gravel"]
     dfsr = dfs[dfs.index.get_level_values("reference product") == "sand, recycled"] * GRAVEL_SAND_USE_SPLIT["sand"]
     # conventional
-    dfgc = dfg[dfg.index.get_level_values("reference product") != "gravel, recycled"] * (GRAVEL_SAND_USE_SPLIT["gravel"] / 2)
+    dfgc = dfg[dfg.index.get_level_values("reference product") != "gravel, recycled"] * (GRAVEL_SAND_USE_SPLIT["gravel"] * 0.5)
     dfsc = dfs[dfs.index.get_level_values("reference product") == "sand"] * GRAVEL_SAND_USE_SPLIT["sand"]
 
     # combine into recycled group by region
@@ -55,7 +55,11 @@ def combine_aggregates(dfg, dfs):
 
 recycled_df, conventional_df = combine_aggregates(gravel_df, sand_df)
 
-def plot_method(dfs, line_styles, method, prepend="", append="", export=False):
+def plot_method(dfs, line_styles, method, regions=None, folder="", prepend="", append="", export=False):
+
+    if not regions:
+        # if we didn't get regions, plot all of them
+        regions = dfs[0].index
 
     fig = plt.figure(1)
     ax = fig.add_subplot(111)
@@ -66,6 +70,8 @@ def plot_method(dfs, line_styles, method, prepend="", append="", export=False):
         df.columns = years
 
         for region, row in df.iterrows():
+            if region not in regions:
+                continue
             color = PREMISE_REGION_COLORS.get(region, "#000000")
             ax.plot(years, row.values, label=region, color=color, linestyle=line_style)
 
@@ -75,8 +81,10 @@ def plot_method(dfs, line_styles, method, prepend="", append="", export=False):
     ax.set_title(title)
     ax.grid('on')
 
+    export_path = os.path.join(EXPORT_PATH, folder)
+
     if export:
-        file = os.path.join(EXPORT_PATH, f"{title}.{FIGURE_FORMAT}")
+        file = os.path.join(export_path, f"{title}.{FIGURE_FORMAT}")
         fig.savefig(file, bbox_extra_artists=(lgd,), bbox_inches="tight")
         fig.clear()
     else:
@@ -84,16 +92,30 @@ def plot_method(dfs, line_styles, method, prepend="", append="", export=False):
 
 
 # method per 1 kg aggregates
+# for method in METHODS:
+#     plot_method([recycled_df, conventional_df],
+#                 line_styles=["solid", "dashed"],
+#                 method=method,
+#                 prepend="",
+#                 folder="per_kg",
+#                 append="1kg aggregates",
+#                 export=True)
+
+concrete_df = overall_scores_to_df(os.path.join(*[IMPORT_PATH_LCA, "concrete", "overall.xlsx"]))
+concrete_df_w = overall_scores_to_df(os.path.join(*[IMPORT_PATH_LCA, "concrete", "overall_with_aggregates.xlsx"]))
+concrete_df_wo = overall_scores_to_df(os.path.join(*[IMPORT_PATH_LCA, "concrete", "overall_without_aggregates.xlsx"]))
+
+
+# method per 1 kg concrete
 for method in METHODS:
-    # pass
-    plot_method([recycled_df, conventional_df],
+    plot_method([concrete_df_w],
                 line_styles=["solid", "dashed"],
                 method=method,
                 prepend="",
+                folder="per_kg",
                 append="1kg aggregates",
-                export=True)
+                export=False)
 
-concrete_df = overall_scores_to_df(os.path.join(*[IMPORT_PATH_LCA, "concrete", "overall.xlsx"]))
 
 def get_scenario_df(path):
     df = pd.read_csv(path)
