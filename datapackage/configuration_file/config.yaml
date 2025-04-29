@@ -42,20 +42,6 @@ regionalize:
     - name: heated air classification (has)
       reference product: intermediate (0-4 mm)
       exists in original database: False
-    # HVO Diesel
-    - name: crude oil pretreatment
-      reference product: pretreated oil
-      exists in original database: False
-    - name: hvo diesel production (roque et al 2023)
-      reference product: hvo diesel
-      exists in original database: False
-    # concrete
-    - name: market for concrete, normal strength
-      reference product: concrete, normal strength
-      exists in original database: True
-    - name: concrete, all types to generic market for concrete, normal strength
-      reference product: concrete, normal strength
-      exists in original database: True
 
 production pathways:
   # Production of gravel

@@ -92,7 +92,7 @@ def calculate_availability(df: pd.DataFrame,
     The inflow conversion rate is similar to the outflow conversion rate, but it
     moderates how much of the available material (from outflow and stock from
     previous timesteps) can be converted to new material, it is moderated as a max
-    percentage of the inflow (demand) (e.g. 0.3 = 30% of available material can be
+    percentage of the inflow (demand) (e.g. 0.3 = 30% of material demand can be
     converted to new material in a given year).
 
     The conversion factors can be given as a single number (float or int), or as a

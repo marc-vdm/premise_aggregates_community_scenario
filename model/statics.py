@@ -32,6 +32,37 @@ IMAGE_REGIONS = {
     26: "Rest of Southern Africa",
     }
 
+GROUPED_REGIONS = {
+    # Mapping IMAGE regions (value) to groups (key)
+    # IMAGE regions: https://web.archive.org/web/20231128100726/https://models.pbl.nl/image/index.php/Region_classification_map
+    "Canada": "North America",
+    "USA": "North America",
+    "Mexico": "#North America",
+    "Central America": "Rest of America",
+    "Brazil": "Rest of America",
+    "Rest of South America": "Rest of America",
+    "Northern Africa": "Africa",
+    "Western Africa": "Africa",
+    "Eastern Africa": "Africa",
+    "South Africa": "Africa",
+    "Western Europe": "Europe",
+    "Central Europe": "Europe",
+    "Turkey": "Europe",
+    "Ukraine region": "Europe",
+    "Central Asia": "Rest of Asia",
+    "Russia region": "Rest of Asia",
+    "Middle East": "Rest of Asia",
+    "India": "India",
+    "Korea region": "Rest of Asia",
+    "China region": "China",
+    "Southeastern Asia": "Rest of Asia",
+    "Indonesia region": "Rest of Asia",
+    "Japan": "Rest of Asia",
+    "Oceania": "Rest of Asia",
+    "Rest of South Asia": "Rest of Asia",
+    "Rest of Southern Africa": "Africa",
+    }
+
 IMAGE_REGION_COLORS = {
     # Mapping IMAGE region name (key) to region color (value)
     # IMAGE regions: https://web.archive.org/web/20231128100726/https://models.pbl.nl/image/index.php/Region_classification_map

@@ -3,14 +3,14 @@ from datapackage import Package
 import bw2data as bd
 
 #project
-PROJECT = "premise_aggregates"
+PROJECT = "premise_sand_gravel"
 bd.projects.set_current(PROJECT)
 
 # database settings
 SOURCE_DB = "ecoinvent-3.10.1-cutoff"
 # SOURCE_DB = "premise_superstructure"
 SOURCE_V = "3.10"
-NEW_DB_NAME = "premise_aggregates"
+NEW_DB_NAME = "premise_sand_gravel"
 # NEW_DB_NAME = "test"
 
 # key
@@ -18,7 +18,7 @@ with open("./key.txt", "r") as f:
     KEY = f.readline()
 
 # get external data
-fp = r"./datapackage.json"
+fp = r"./datapackage/datapackage.json"
 aggregates = Package(fp)
 
 # set scenarios
